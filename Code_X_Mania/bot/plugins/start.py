@@ -28,7 +28,7 @@ buttonz=ReplyKeyboardMarkup(
             
             
             
-@StreamBot.on_message(filters.regex("Maintainers😎"))
+@StreamBot.on_message(filters.regex("HB4All😎"))
 async def follow_user(b,m):
     try:
        await b.send_message(chat_id=m.chat.id,text="HELLO",quote=True)
