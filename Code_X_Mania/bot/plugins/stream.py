@@ -47,7 +47,7 @@ async def login_handler(c: Client, m: Message):
 async def private_receive_handler(c: Client, m: Message):
     check_pass = await pass_db.get_user_pass(m.chat.id)
     if check_pass== None:
-        await m.reply_text("Now send me password.\n\n Password `HB4All`")
+        await m.reply_text("Click /login Then Send me password.\n\n Password `HB4All`")
         return
     if check_pass != MY_PASS:
         await pass_db.delete_user(m.chat.id)
