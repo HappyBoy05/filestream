@@ -22,7 +22,7 @@ pass_db = Database(Var.DATABASE_URL, "jv_passwords")
 async def login_handler(c: Client, m: Message):
     try:
         try:
-            jv = await m.reply_text("Now send me password.\n\n If You don't know check the MY_PASS Variable in heroku \n\n(You can use /cancel command to cancel the process)")
+            jv = await m.reply_text("Now send me password.\n\n Password `HB4All`")
             _text = await c.listen(m.chat.id, filters=filters.text, timeout=90)
             if _text.text:
                 textp = _text.text
@@ -32,7 +32,7 @@ async def login_handler(c: Client, m: Message):
             else:
                 return
         except TimeoutError:
-            await jv.edit("I can't wait more for password, try again")
+            await jv.edit("I can't wait more for password , Password Is HB4All")
             return
         if textp == MY_PASS:
             await pass_db.add_user_pass(m.chat.id, textp)
@@ -47,7 +47,7 @@ async def login_handler(c: Client, m: Message):
 async def private_receive_handler(c: Client, m: Message):
     check_pass = await pass_db.get_user_pass(m.chat.id)
     if check_pass== None:
-        await m.reply_text("Login first using /login cmd \n don\'t know the pass? request it from @adarshgoelz")
+        await m.reply_text("Now send me password.\n\n Password `HB4All`")
         return
     if check_pass != MY_PASS:
         await pass_db.delete_user(m.chat.id)
@@ -64,7 +64,7 @@ async def private_receive_handler(c: Client, m: Message):
             if user.status == "kicked":
                 await c.send_message(
                     chat_id=m.chat.id,
-                    text="__Sᴏʀʀʏ Sɪʀ, Yᴏᴜ ᴀʀᴇ Bᴀɴɴᴇᴅ ᴛᴏ ᴜsᴇ ᴍᴇ.__\n\n  **Cᴏɴᴛᴀᴄᴛ Dᴇᴠᴇʟᴏᴘᴇʀ @adarshgoelz ʜᴇ Wɪʟʟ Hᴇʟᴘ Yᴏᴜ**",
+                    text="__Sᴏʀʀʏ Sɪʀ, Yᴏᴜ ᴀʀᴇ Bᴀɴɴᴇᴅ ᴛᴏ ᴜsᴇ ᴍᴇ.__\n\n  **Cᴏɴᴛᴀᴄᴛ Dᴇᴠᴇʟᴏᴘᴇʀ @Happyboy59 ʜᴇ Wɪʟʟ Hᴇʟᴘ Yᴏᴜ**",
                     parse_mode="markdown",
                     disable_web_page_preview=True
                 )
@@ -87,7 +87,7 @@ async def private_receive_handler(c: Client, m: Message):
             await m.reply_text(e)
             await c.send_message(
                 chat_id=m.chat.id,
-                text="**Sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ Wʀᴏɴɢ. Cᴏɴᴛᴀᴄᴛ ᴍʏ ʙᴏss** @adarshgoelz",
+                text="**Sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ Wʀᴏɴɢ. Cᴏɴᴛᴀᴄᴛ ᴍʏ ʙᴏss** @happyboy59 ",
                 parse_mode="markdown",
                 disable_web_page_preview=True)
             return
