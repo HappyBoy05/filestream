@@ -144,9 +144,8 @@ async def private_receive_handler(c: Client, m: Message):
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🖥STREAM", url=stream_link), #Stream Link
                                                 InlineKeyboardButton('Dᴏᴡɴʟᴏᴀᴅ📥', url=online_link),
                                                 InlineKeyboardButton("Playit", url=hb4all)]]) #Download Link
-        )
-                                                
-        )
+        
+                )
     except FloodWait as e:
         print(f"Sleeping for {str(e.x)}s")
         await asyncio.sleep(e.x)
