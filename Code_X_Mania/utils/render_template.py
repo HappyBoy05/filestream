@@ -1,7 +1,6 @@
 # (c) Code-x-Mania
 from Code_X_Mania.vars import Var
 from Code_X_Mania.bot import StreamBot
-from Code_X_Mania.bot.plugins.stream import HB4All
 from Code_X_Mania.utils.custom_dl import TGCustomYield
 from Code_X_Mania.utils.file_size import human_size
 import urllib.parse
@@ -30,16 +29,16 @@ async def render_page(message_id):
         async with aiofiles.open('Code_X_Mania/template/req.html') as r:
             heading = 'Watch {}'.format(file_name)
             tag = mime_type.split('/')[0].strip()
-            html = (await r.read()).replace('tag', tag) % (heading, file_name, HB4All, src)
+            html = (await r.read()).replace('tag', tag) % (heading, file_name, src)
     elif mime_type.lower() in audio_formats:
         async with aiofiles.open('Code_X_Mania/template/req.html') as r:
             heading = 'Listen {}'.format(file_name)
             tag = mime_type.split('/')[0].strip()
-            html = (await r.read()).replace('tag', tag) % (heading, file_name, HB4All, src)
+            html = (await r.read()).replace('tag', tag) % (heading, file_name, src)
     else:
         async with aiofiles.open('Code_X_Mania/template/dl.html') as r:
             async with aiohttp.ClientSession() as s:
                 async with s.get(src) as u:
                     file_size = human_size(u.headers.get('Content-Type'))
-                    html = (await r.read()) % (heading, file_name, src, HB4All, file_size)
+                    html = (await r.read()) % (heading, file_name, src, file_size)
     return html
