@@ -133,6 +133,8 @@ async def private_receive_handler(c: Client, m: Message):
 
 <b> 🖥WATCH  :</b> <i>{}</i>
 
+<b> 📽️Playit : <a href =f"hb4all"> Click Here </a></b>
+
 <b>🚸 Nᴏᴛᴇ : LINK WON'T EXPIRE TILL I DELETE</b>"""
 
         await log_msg.reply_text(text=f"**RᴇQᴜᴇꜱᴛᴇᴅ ʙʏ :** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n**Uꜱᴇʀ ɪᴅ :** `{m.from_user.id}`\n**Stream ʟɪɴᴋ :** {stream_link}", disable_web_page_preview=True, parse_mode="Markdown", quote=True)
@@ -142,8 +144,7 @@ async def private_receive_handler(c: Client, m: Message):
             quote=True,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🖥STREAM", url=stream_link), #Stream Link
-                                                InlineKeyboardButton('Dᴏᴡɴʟᴏᴀᴅ📥', url=online_link),
-                                                InlineKeyboardButton("Playit", url=hb4all)]]) #Download Link
+                                                InlineKeyboardButton('Dᴏᴡɴʟᴏᴀᴅ📥', url=online_link)]]) #Download Link
         
                 )
     except FloodWait as e:
