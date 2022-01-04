@@ -119,7 +119,7 @@ async def private_receive_handler(c: Client, m: Message):
         
         online_link = Var.URL + 'download/'+ str(log_msg.message_id) 
        
-        
+        hb4all = 'playit://playerv2/video?url' + online_link
         
 
         msg_text ="""
@@ -142,7 +142,8 @@ async def private_receive_handler(c: Client, m: Message):
             quote=True,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🖥STREAM", url=stream_link), #Stream Link
-                                                InlineKeyboardButton('Dᴏᴡɴʟᴏᴀᴅ📥', url=online_link)]]) #Download Link
+                                                InlineKeyboardButton('Dᴏᴡɴʟᴏᴀᴅ📥', url=online_link)] #Download Link
+                                                InlinekeyboardButton('Playit', url=hb4all]) 
         )
     except FloodWait as e:
         print(f"Sleeping for {str(e.x)}s")
