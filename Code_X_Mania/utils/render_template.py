@@ -1,6 +1,7 @@
 # (c) Code-x-Mania
 from Code_X_Mania.vars import Var
 from Code_X_Mania.bot import StreamBot
+from Code_X_Mania.bot.plugins.stream import online_link
 from Code_X_Mania.utils.custom_dl import TGCustomYield
 from Code_X_Mania.utils.file_size import human_size
 import urllib.parse
@@ -21,7 +22,6 @@ async def fetch_properties(message_id):
 
 
 async def render_page(message_id):
-    online_link =urllib.parse.urljoin( Var.URL + 'download/'+ str(message_id))
     file_name, mime_type = await fetch_properties(message_id)
     src = urllib.parse.urljoin(Var.URL, str(message_id))
     audio_formats = ['audio/mpeg', 'audio/mp4', 'audio/x-mpegurl', 'audio/vnd.wav']
