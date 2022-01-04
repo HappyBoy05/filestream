@@ -119,7 +119,7 @@ async def private_receive_handler(c: Client, m: Message):
         
         online_link = Var.URL + 'download/'+ str(log_msg.message_id) 
        
-        hb4all = 'playit://playerv2/video?url' + online_link
+        hb4all = 'playit://playerv2/video?url=' + online_link
         
 
         msg_text ="""
