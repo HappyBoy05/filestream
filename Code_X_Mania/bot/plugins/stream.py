@@ -118,8 +118,6 @@ async def private_receive_handler(c: Client, m: Message):
         stream_link = Var.URL + 'watch/' + str(log_msg.message_id) 
         
         online_link = Var.URL + 'download/'+ str(log_msg.message_id) 
-       
-        hb4all = 'playit://playerv2/video?url=' + f"{online_link}
         
 
         msg_text ="""
@@ -133,9 +131,7 @@ async def private_receive_handler(c: Client, m: Message):
 
 <b> 🖥WATCH  :</b> <i>{}</i>
 
-<b> 📽️Playit : <a href =f"hb4all"> Click Here </a></b>
-
-<b>🚸 Nᴏᴛᴇ : LINK WON'T EXPIRE TILL I DELETE</b>"""
+<b>🚸 Nᴏᴛᴇ : LINK WON'T EXPIRE TILL I DELETE\n If 18+Content Will Be Deleted</b>"""
 
         await log_msg.reply_text(text=f"**RᴇQᴜᴇꜱᴛᴇᴅ ʙʏ :** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n**Uꜱᴇʀ ɪᴅ :** `{m.from_user.id}`\n**Stream ʟɪɴᴋ :** {stream_link}", disable_web_page_preview=True, parse_mode="Markdown", quote=True)
         await m.reply_text(
