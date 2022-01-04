@@ -21,7 +21,7 @@ async def fetch_properties(message_id):
 
 
 async def render_page(message_id):
-    online_link = Var.URL + 'download/'+ str(log_msg.message_id) 
+    online_link = Var.URL + 'download/'+ str(message_id) 
     file_name, mime_type = await fetch_properties(message_id)
     src = urllib.parse.urljoin(Var.URL, str(message_id))
     audio_formats = ['audio/mpeg', 'audio/mp4', 'audio/x-mpegurl', 'audio/vnd.wav']
